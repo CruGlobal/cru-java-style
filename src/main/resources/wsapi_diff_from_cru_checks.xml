@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<diff>
+
+  <!-- In wsapi, left curly brackets go on a new line -->
+  <add sel="module/module/module[@name='LeftCurly']">
+    <property name="option" value="nl"/>
+  </add>
+
+  <!-- right curly brackets go on a new line, alone -->
+  <remove msel="module/module/module[@name='RightCurly']"></remove>
+  <add sel="module/module[@name='TreeWalker']">
+    <module name="RightCurly">
+      <property name="option" value="alone" />
+      <property name="tokens"
+        value="
+          CLASS_DEF,
+          METHOD_DEF,
+          CTOR_DEF,
+          LITERAL_FOR,
+          LITERAL_WHILE,
+          STATIC_INIT,
+          INSTANCE_INIT,
+          LITERAL_TRY,
+          LITERAL_CATCH,
+          LITERAL_FINALLY,
+          LITERAL_IF,
+          LITERAL_ELSE,
+          LITERAL_DO" />
+    </module>
+  </add>
+
+  <!-- when wrapping, operators should be at the end of lines -->
+  <add sel="module/module[@name='TreeWalker']">
+    <module name="OperatorWrap">
+      <property name="option" value="eol"/>
+      <property name="tokens"
+        value="
+          BAND,
+          BOR,
+          BSR,
+          BXOR,
+          DIV,
+          EQUAL,
+          GE,
+          GT,
+          LAND,
+          LE,
+          LITERAL_INSTANCEOF,
+          LOR,
+          LT,
+          MINUS,
+          MOD,
+          NOT_EQUAL,
+          PLUS,
+          QUESTION,
+          SL,
+          SR,
+          STAR,
+          METHOD_REF"/>
+    </module>
+  </add>
+
+  <!-- Import order is not consistent in wsapi. We'll address later. -->
+  <remove msel="module/module/module[@name='CustomImportOrder']"></remove>
+
+  <!-- There are quite a few long lines in wsapi. We'll address later. -->
+  <replace sel="module/module/module[@name='LineLength']/property[@name='max']/@value">
+    200
+  </replace>
+
+</diff>

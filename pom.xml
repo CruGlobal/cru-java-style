@@ -79,6 +79,21 @@
               </arguments>
             </configuration>
           </execution>
+
+          <execution>
+            <id>build-wsapi-checks</id>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>java</goal>
+            </goals>
+            <configuration>
+              <arguments>
+                <argument>${project.build.outputDirectory}/cru_checks.xml</argument>
+                <argument>${project.basedir}/src/main/resources/wsapi_diff_from_cru_checks.xml</argument>
+                <argument>${project.build.outputDirectory}/wsapi_checks.xml</argument>
+              </arguments>
+            </configuration>
+          </execution>
         </executions>
         <configuration>
           <mainClass>com.github.dnault.xmlpatch.CommandLineDriver</mainClass>
