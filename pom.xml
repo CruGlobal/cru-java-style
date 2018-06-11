@@ -8,7 +8,8 @@
   <packaging>jar</packaging>
 
   <name>cru-java-style</name>
-  <url>http://maven.apache.org</url>
+  <description>The checkstyle rules that enforce Cru's java style guide.</description>
+  <url>https://github.com/CruGlobal/cru-java-style</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
