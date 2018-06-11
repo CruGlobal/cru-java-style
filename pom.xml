@@ -11,6 +11,10 @@
   <description>The checkstyle rules that enforce Cru's java style guide.</description>
   <url>https://github.com/CruGlobal/cru-java-style</url>
 
+  <scm>
+    <developerConnection>git:https://github.com/CruGlobal/cru-java-style.git</developerConnection>
+  </scm>
+
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
