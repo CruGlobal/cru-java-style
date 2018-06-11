@@ -16,5 +16,75 @@
   </properties>
 
   <dependencies>
+    <dependency>
+      <groupId>com.github.dnault</groupId>
+      <artifactId>xml-patch</artifactId>
+      <version>0.3.1</version>
+
+      <!-- build-time only -->
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.puppycrawl.tools</groupId>
+      <artifactId>checkstyle</artifactId>
+      <version>8.10.1</version>
+      <scope>compile</scope>
+    </dependency>
   </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>3.1.1</version>
+        <executions>
+          <execution>
+            <id>unpack-google-checkstyle-config</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>unpack</goal>
+            </goals>
+            <configuration>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>com.puppycrawl.tools</groupId>
+                  <artifactId>checkstyle</artifactId>
+                  <version>8.10.1</version>
+                  <includes>google_checks.xml</includes>
+                </artifactItem>
+              </artifactItems>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.6.0</version>
+        <executions>
+          <execution>
+            <id>build-cru-checks</id>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>java</goal>
+            </goals>
+            <configuration>
+              <arguments>
+                <argument>${project.basedir}/target/dependency/google_checks.xml</argument>
+                <argument>${project.basedir}/src/main/resources/cru_diff_from_google_checks.xml</argument>
+                <argument>${project.build.outputDirectory}/cru_checks.xml</argument>
+              </arguments>
+            </configuration>
+          </execution>
+        </executions>
+        <configuration>
+          <mainClass>com.github.dnault.xmlpatch.CommandLineDriver</mainClass>
+          <classpathScope>compile</classpathScope>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>
