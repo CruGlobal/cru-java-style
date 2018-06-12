@@ -12,6 +12,13 @@
     4
   </replace>
 
+  <!-- require whitespace after a comma -->
+  <add sel="module/module[@name='TreeWalker']">
+    <module name="WhitespaceAfter">
+      <property name="tokens" value="COMMA"/>
+    </module>
+  </add>
+
   <!-- don't require operators to begin new lines -->
   <remove sel="module/module/module[@name='OperatorWrap']" ws="after"/>
 
