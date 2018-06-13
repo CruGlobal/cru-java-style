@@ -40,4 +40,7 @@
     <module name="SuppressWarningsFilter" />
   </add>
 
+  <!-- use 'error', not 'warning' -->
+  <remove sel="module[@name='Checker']/property[@name='severity']" ws="after"/>
+
 </diff>
