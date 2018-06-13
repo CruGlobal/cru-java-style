@@ -19,8 +19,10 @@
     </module>
   </add>
 
-  <!-- don't require operators to begin new lines -->
-  <remove sel="module/module/module[@name='OperatorWrap']" ws="after"/>
+  <!-- when wrapping, operators should be at the end of lines -->
+  <replace sel="module/module/module[@name='OperatorWrap']/property[@name='option']/@value">
+    eol
+  </replace>
 
   <!-- don't require <p> tags in javadoc -->
   <remove sel="module/module/module[@name='JavadocParagraph']" ws="after"/>

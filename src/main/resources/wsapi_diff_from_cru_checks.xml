@@ -29,37 +29,6 @@
     </module>
   </add>
 
-  <!-- when wrapping, operators should be at the end of lines -->
-  <add sel="module/module[@name='TreeWalker']">
-    <module name="OperatorWrap">
-      <property name="option" value="eol"/>
-      <property name="tokens"
-        value="
-          BAND,
-          BOR,
-          BSR,
-          BXOR,
-          DIV,
-          EQUAL,
-          GE,
-          GT,
-          LAND,
-          LE,
-          LITERAL_INSTANCEOF,
-          LOR,
-          LT,
-          MINUS,
-          MOD,
-          NOT_EQUAL,
-          PLUS,
-          QUESTION,
-          SL,
-          SR,
-          STAR,
-          METHOD_REF"/>
-    </module>
-  </add>
-
   <!-- Import order is not consistent in wsapi. We'll address later. -->
   <remove msel="module/module/module[@name='CustomImportOrder']"></remove>
 
