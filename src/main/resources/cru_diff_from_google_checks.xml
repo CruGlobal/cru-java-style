@@ -12,6 +12,11 @@
     4
   </replace>
 
+  <!-- limit to 120 columns instead of 100 -->
+  <replace sel="module/module/module[@name='LineLength']/property[@name='max']/@value">
+    120
+  </replace>
+
   <!-- require whitespace after a comma -->
   <add sel="module/module[@name='TreeWalker']">
     <module name="WhitespaceAfter">
