@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
-<diff>
+<p:patch xmlns:p="urn:ietf:rfc:7351">
 
   <!-- In wsapi, left curly brackets go on a new line -->
-  <add sel="module/module/module[@name='LeftCurly']">
+  <p:add sel="module/module/module[@name='LeftCurly']">
     <property name="option" value="nl"/>
-  </add>
+  </p:add>
 
   <!-- right curly brackets go on a new line, alone -->
-  <remove msel="module/module/module[@name='RightCurly']"></remove>
-  <add sel="module/module[@name='TreeWalker']">
+  <p:remove msel="module/module/module[@name='RightCurly']"/>
+  <p:add sel="module/module[@name='TreeWalker']">
     <module name="RightCurly">
       <property name="option" value="alone" />
       <property name="tokens"
@@ -27,14 +27,14 @@
           LITERAL_ELSE,
           LITERAL_DO" />
     </module>
-  </add>
+  </p:add>
 
   <!-- Import order is not consistent in wsapi. We'll address later. -->
-  <remove msel="module/module/module[@name='CustomImportOrder']"></remove>
+  <p:remove msel="module/module/module[@name='CustomImportOrder']"/>
 
   <!-- There are quite a few long lines in wsapi. We'll address later. -->
-  <replace sel="module/module/module[@name='LineLength']/property[@name='max']/@value">
+  <p:replace sel="module/module/module[@name='LineLength']/property[@name='max']/@value">
     200
-  </replace>
+  </p:replace>
 
-</diff>
+</p:patch>
