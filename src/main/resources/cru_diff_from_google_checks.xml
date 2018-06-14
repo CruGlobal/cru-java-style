@@ -33,6 +33,14 @@
     eol
   </p:replace>
 
+  <!-- keep methods short -->
+  <p:add sel="module/module[@name='TreeWalker']">
+    <module name="MethodLength">
+      <property name="max" value="30" />
+      <property name="countEmpty" value="false" />
+    </module>
+  </p:add>
+
   <!-- don't require <p> tags in javadoc -->
   <p:remove sel="module/module/module[@name='JavadocParagraph']" ws="after"/>
 
