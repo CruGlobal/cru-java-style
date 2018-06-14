@@ -1,4 +1,8 @@
 <?xml version="1.0"?>
+<!--
+  This RFC 5261 xml diff document specifies the difference between Cru's checkstyle rules
+  and the google_checks rules included in the checkstyle distribution.
+-->
 <diff>
 
   <!-- indent with 4 spaces -->
