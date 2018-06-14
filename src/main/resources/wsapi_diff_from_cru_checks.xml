@@ -32,9 +32,4 @@
   <!-- Import order is not consistent in wsapi. We'll address later. -->
   <p:remove msel="module/module/module[@name='CustomImportOrder']"/>
 
-  <!-- There are quite a few long lines in wsapi. We'll address later. -->
-  <p:replace sel="module/module/module[@name='LineLength']/property[@name='max']/@value">
-    200
-  </p:replace>
-
 </p:patch>
