@@ -1,0 +1,9 @@
+# ignore maven target directory
+target/
+
+# ignore intellij
+.idea
+*.iml
+
+# ignore mac folder attributes file
+.DS_Store

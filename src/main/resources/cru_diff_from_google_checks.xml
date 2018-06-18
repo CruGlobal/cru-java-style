@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!--
+  This RFC 7351 xml patch document specifies the difference between Cru's checkstyle rules
+  and the google_checks rules included in the checkstyle distribution.
+-->
+<p:patch xmlns:p="urn:ietf:rfc:7351">
+
+  <!-- indent with 4 spaces -->
+  <p:replace sel="module/module/module[@name='Indentation']/property[@name='basicOffset']/@value">
+    4
+  </p:replace>
+  <p:replace sel="module/module/module[@name='Indentation']/property[@name='caseIndent']/@value">
+    4
+  </p:replace>
+  <p:replace sel="module/module/module[@name='Indentation']/property[@name='arrayInitIndent']/@value">
+    4
+  </p:replace>
+
+  <!-- limit to 120 columns instead of 100 -->
+  <p:replace sel="module/module/module[@name='LineLength']/property[@name='max']/@value">
+    120
+  </p:replace>
+
+  <!-- require whitespace after a comma -->
+  <p:add sel="module/module[@name='TreeWalker']">
+    <module name="WhitespaceAfter">
+      <property name="tokens" value="COMMA"/>
+    </module>
+  </p:add>
+
+  <!-- when wrapping, operators should be at the end of lines -->
+  <p:replace sel="module/module/module[@name='OperatorWrap']/property[@name='option']/@value">
+    eol
+  </p:replace>
+
+  <!-- keep methods short -->
+  <p:add sel="module/module[@name='TreeWalker']">
+    <module name="MethodLength">
+      <property name="max" value="30" />
+      <property name="countEmpty" value="false" />
+    </module>
+  </p:add>
+
+  <!-- don't require <p> tags in javadoc -->
+  <p:remove sel="module/module/module[@name='JavadocParagraph']" ws="after"/>
+
+  <!-- don't require javadoc on public methods/constructors -->
+  <p:add sel="module/module/module[@name='JavadocMethod']">
+    <property name="allowMissingJavadoc" value="true"/>
+  </p:add>
+
+  <!-- enable @SuppressWarnings -->
+  <p:add sel="module/module[@name='TreeWalker']">
+    <module name="SuppressWarningsHolder" />
+  </p:add>
+  <p:add sel="module[@name='Checker']">
+    <module name="SuppressWarningsFilter" />
+  </p:add>
+
+  <!-- use 'error', not 'warning' -->
+  <p:remove sel="module[@name='Checker']/property[@name='severity']" ws="after"/>
+
+</p:patch>

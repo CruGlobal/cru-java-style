@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<p:patch xmlns:p="urn:ietf:rfc:7351">
+
+  <!--
+     For now, left curly brackets go on a new line.
+     We'll align with the style guide later.
+   -->
+  <p:add sel="module/module/module[@name='LeftCurly']">
+    <property name="option" value="nl"/>
+  </p:add>
+
+  <!--
+    For now, right curly brackets go on a new line, alone.
+    We'll align with the style guide later.
+   -->
+  <p:remove msel="module/module/module[@name='RightCurly']"/>
+  <p:add sel="module/module[@name='TreeWalker']">
+    <module name="RightCurly">
+      <property name="option" value="alone" />
+      <property name="tokens"
+        value="
+          CLASS_DEF,
+          METHOD_DEF,
+          CTOR_DEF,
+          LITERAL_FOR,
+          LITERAL_WHILE,
+          STATIC_INIT,
+          INSTANCE_INIT,
+          LITERAL_TRY,
+          LITERAL_CATCH,
+          LITERAL_FINALLY,
+          LITERAL_IF,
+          LITERAL_ELSE,
+          LITERAL_DO" />
+    </module>
+  </p:add>
+
+  <!-- Import order is not consistent in wsapi. We'll address later. -->
+  <p:remove msel="module/module/module[@name='CustomImportOrder']"/>
+
+</p:patch>
