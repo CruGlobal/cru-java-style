@@ -15,6 +15,11 @@
     <developerConnection>git:https://github.com/CruGlobal/cru-java-style.git</developerConnection>
   </scm>
 
+  <issueManagement>
+    <system>GitHub</system>
+    <url>https://github.com/CruGlobal/cru-java-style</url>
+  </issueManagement>
+
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
