@@ -1,12 +1,18 @@
 <?xml version="1.0"?>
 <p:patch xmlns:p="urn:ietf:rfc:7351">
 
-  <!-- In wsapi, left curly brackets go on a new line -->
+  <!--
+     For now, left curly brackets go on a new line.
+     We'll align with the style guide later.
+   -->
   <p:add sel="module/module/module[@name='LeftCurly']">
     <property name="option" value="nl"/>
   </p:add>
 
-  <!-- right curly brackets go on a new line, alone -->
+  <!--
+    For now, right curly brackets go on a new line, alone.
+    We'll align with the style guide later.
+   -->
   <p:remove msel="module/module/module[@name='RightCurly']"/>
   <p:add sel="module/module[@name='TreeWalker']">
     <module name="RightCurly">
