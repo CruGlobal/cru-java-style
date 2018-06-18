@@ -20,6 +20,20 @@
     <url>https://github.com/CruGlobal/cru-java-style</url>
   </issueManagement>
 
+  <distributionManagement>
+    <repository>
+      <name>Cru Private Releases</name>
+      <url>https://cruglobal.jfrog.io/cruglobal/list/maven-cru-private-releases-local/</url>
+      <id>cruglobal.jfrog.io</id>
+    </repository>
+
+    <snapshotRepository>
+      <name>Cru Private Snapshots</name>
+      <url>https://cruglobal.jfrog.io/cruglobal/list/maven-cru-private-snapshots-local/</url>
+      <id>cruglobal.jfrog.io</id>
+    </snapshotRepository>
+  </distributionManagement>
+
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
