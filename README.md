@@ -16,6 +16,7 @@ Usage in a maven project:
         <version>3.0.0</version>
         <configuration>
           <configLocation>cru_checks.xml</configLocation>
+          <includeTestSourceDirectory>true</includeTestSourceDirectory>
         </configuration>
         <dependencies>
           <!-- the maven plugin's version is too outdated -->
